@@ -6,14 +6,12 @@ namespace Brainz.Demo.TDD.Gun
 	public class Revolver : IGun
 	{
 		[Inject]
-		private IObjectInstantiator instantiator;
+		private IBulletInstantiator instantiator;
 
-		[Inject("Bullet")]
-		private GameObject bullet;
-
-		public void Shoot()
+		public void Shoot(GameObject bulletPrefab, Vector3 position, float impulse)
 		{
-			instantiator.Instantiate(bullet);
+			Rigidbody bullet = instantiator.Instantiate(bulletPrefab, position);
+			bullet.AddForce(Vector3.forward * impulse, ForceMode.Impulse);
 		}
 	}
 }

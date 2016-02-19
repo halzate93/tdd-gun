@@ -1,7 +1,9 @@
-﻿namespace Brainz.Demo.TDD.Gun
+﻿using UnityEngine;
+
+namespace Brainz.Demo.TDD.Gun
 {
 	public interface IGun
 	{
-		void Shoot();
+		void Shoot(GameObject bulletPrefab, Vector3 position, float impulse);
 	}
 }
